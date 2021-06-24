@@ -188,7 +188,7 @@
             </objects>
             <point key="canvasLocation" x="-512" y="3"/>
         </scene>
-        <!--Movies Grid View Controller-->
+        <!--Now Showing-->
         <scene sceneID="0Zv-kl-Q5F">
             <objects>
                 <viewController id="gbh-gH-42D" customClass="MoviesGridViewController" sceneMemberID="viewController">
@@ -198,7 +198,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hx9-TM-lxd">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="YEJ-YQ-3dK">
                                     <size key="itemSize" width="128" height="205"/>
@@ -224,6 +224,7 @@
                                         <size key="customSize" width="128" height="205"/>
                                         <connections>
                                             <outlet property="posterView" destination="znz-gl-Qpd" id="D37-MW-xz9"/>
+                                            <segue destination="nqc-BI-N8w" kind="show" id="Vks-0t-QXU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -232,7 +233,7 @@
                         <viewLayoutGuide key="safeArea" id="nYW-NA-zNW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fO2-93-te4"/>
+                    <navigationItem key="navigationItem" title="Now Showing" id="fO2-93-te4"/>
                     <connections>
                         <outlet property="collectionView" destination="hx9-TM-lxd" id="4LF-UZ-6SO"/>
                     </connections>
@@ -242,6 +243,9 @@
             <point key="canvasLocation" x="-1462.3188405797102" y="1469.8660714285713"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Vks-0t-QXU"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -70,7 +70,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //TODO: where is this function called?
+    //TODO: where is this function called? I think it's called implicitly by the tableView component
     return self.movies.count;
 }
 
@@ -94,7 +94,7 @@
     return cell;
 }
 
-- (void) makeAlert{ //TODO: Make this a function or something
+- (void) makeAlert{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies"
                                                                     message:@"The internet connection appears to be offline"
                                                                     preferredStyle:(UIAlertControllerStyleAlert)];
