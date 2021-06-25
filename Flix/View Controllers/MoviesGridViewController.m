@@ -40,6 +40,24 @@
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeRight];
+    
+}
+
+- (IBAction)tappedLeftButton:(id)sender
+{
+    
+    
+    //UIViewController *rootVC = [[[[UIApplication sharedApplication]delegate] window] rootViewController];
+    
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    NSLog(@"%lu", (unsigned long)selectedIndex);
+
+    //[self.tabBarController setSelectedIndex:selectedIndex + 1];
 }
 
 - (void) fetchMovies {

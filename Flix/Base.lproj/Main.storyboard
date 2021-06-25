@@ -283,6 +283,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="YEJ-YQ-3dK">
                                     <size key="itemSize" width="128" height="205"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -311,6 +312,9 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IwA-QI-lQp" appends="YES" id="DdA-oE-Lr8"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nYW-NA-zNW"/>
@@ -326,6 +330,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="War-2W-Vex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="7kb-kT-ITX"/>
                 <swipeGestureRecognizer direction="right" id="IwA-QI-lQp">
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" id="QYq-qm-xjP"/>
