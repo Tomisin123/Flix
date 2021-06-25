@@ -35,7 +35,28 @@
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview: self.refreshControl atIndex:0];
     //[self.tableView addSubview:self.refreshControl];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeRight];
 }
+
+- (IBAction)tappedLeftButton:(id)sender
+{
+    NSLog(@"swiped right");
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    [self.tabBarController setSelectedIndex:selectedIndex - 1];
+    
+    //To animate use this code
+    CATransition *anim= [CATransition animation];
+        [anim setType:kCATransitionPush];
+        [anim setSubtype:kCATransitionFromLeft];
+
+        [anim setDuration:.5];
+        //[anim setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+        [self.tabBarController.view.layer addAnimation:anim forKey:@"fadeTransition"];
+}
+
 
 - (void) fetchMovies {
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];

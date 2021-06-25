@@ -42,7 +42,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Luca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pea-38-R4G">
                                                     <rect key="frame" x="189" y="11" width="205" height="36"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -77,11 +77,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="c3l-rn-qi8">
-                    <connections>
-                        <segue destination="gbh-gH-42D" kind="show" id="Z7t-xf-Y8j"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="427.536231884058" y="1469.8660714285713"/>
         </scene>
@@ -111,13 +106,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Luca" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9n-1v-lPh">
-                                        <rect key="frame" x="189" y="270" width="190" height="97"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msx-eI-9j4">
                                         <rect key="frame" x="22" y="461" width="357" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -155,6 +143,26 @@
                                         <rect key="frame" x="39" y="406" width="56" height="47"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swy-KD-ahV">
+                                        <rect key="frame" x="22" y="667" width="357" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Released 06/06/2001">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <font key="NSFont" size="15" name="AndaleMono"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Luca" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9n-1v-lPh">
+                                        <rect key="frame" x="194" y="288" width="190" height="97"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="TLR-ti-NM4"/>
@@ -171,6 +179,7 @@
                         <outlet property="posterView" destination="n6v-YW-fBD" id="FAJ-X2-3MB"/>
                         <outlet property="ratingIcon" destination="Gdu-eT-lZk" id="Tpx-3f-yaP"/>
                         <outlet property="ratingLabel" destination="ArR-LW-rJH" id="Yfn-8F-9qD"/>
+                        <outlet property="releaseDateLabel" destination="swy-KD-ahV" id="nVC-RV-ccE"/>
                         <outlet property="synopsisLabel" destination="Msx-eI-9j4" id="iCX-eV-CIp"/>
                         <outlet property="titleLabel" destination="o9n-1v-lPh" id="IYG-f3-4T4"/>
                     </connections>
@@ -290,6 +299,11 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="iQI-gk-T0Y">
+                                    <rect key="frame" x="0.0" y="-88" width="414" height="842"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" systemColor="systemBlueColor"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionCell" id="rAi-SB-8YI" customClass="MovieCollectionCell">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="205"/>
@@ -312,38 +326,25 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="IwA-QI-lQp" appends="YES" id="DdA-oE-Lr8"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nYW-NA-zNW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="IwA-QI-lQp" appends="YES" id="0TK-Bq-nFT"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Now Showing" id="fO2-93-te4"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="iQI-gk-T0Y" id="fPW-Qi-29R"/>
                         <outlet property="collectionView" destination="hx9-TM-lxd" id="4LF-UZ-6SO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="War-2W-Vex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="7kb-kT-ITX"/>
-                <swipeGestureRecognizer direction="right" id="IwA-QI-lQp">
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="QYq-qm-xjP"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1462.3188405797102" y="1469.8660714285713"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z8E-Tv-hWx"/>
-        <segue reference="Vks-0t-QXU"/>
-        <segue reference="QYq-qm-xjP"/>
+        <segue reference="fCy-cs-ARb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="imageedit_3_9883478176" width="183" height="183"/>

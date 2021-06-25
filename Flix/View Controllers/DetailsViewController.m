@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (strong, nonatomic) NSNumber *movieRating;
 @property (weak, nonatomic) IBOutlet UIImageView *ratingIcon;
+@property (weak, nonatomic) IBOutlet UILabel *releaseDateLabel;
+
 
 
 @end
@@ -44,6 +46,9 @@
     [self.backdropView setImageWithURL:backdropURL];
     
     self.titleLabel.text = self.movie[@"title"];
+    self.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.titleLabel.numberOfLines = 2;
+    self.titleLabel.minimumScaleFactor = 20/25;
     self.synopsisLabel.text = self.movie[@"overview"];
     self.movieRating = (NSNumber *) self.movie[@"vote_average"];
     
@@ -57,9 +62,13 @@
     
     self.ratingLabel.text = [NSString stringWithFormat:@"Rating: %.0f%%", self.movieRating.floatValue * 10];
     
+    self.releaseDateLabel.text = [NSString stringWithFormat:@"Released: %@", self.movie[@"release_date"]];
+    
+    
     [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
     [self.ratingLabel sizeToFit];
+    [self.releaseDateLabel sizeToFit];
     
     [self.posterView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [self.posterView.layer setBorderWidth: 3.0];

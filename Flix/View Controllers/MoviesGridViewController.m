@@ -17,6 +17,8 @@
 @interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) NSArray *movies;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 
 @end
@@ -27,7 +29,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Start the activity indicator
+    [self.activityIndicator startAnimating];
+    
     [self fetchMovies];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView insertSubview: self.refreshControl atIndex:0];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
     
@@ -41,23 +50,25 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
-    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
-    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
-    [self.view addGestureRecognizer:swipeRight];
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:swipeLeft];
     
 }
 
-- (IBAction)tappedLeftButton:(id)sender
+- (IBAction)tappedRightButton:(id)sender
 {
-    
-    
-    //UIViewController *rootVC = [[[[UIApplication sharedApplication]delegate] window] rootViewController];
-    
+    NSLog(@"swiped left");
     NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    [self.tabBarController setSelectedIndex:selectedIndex + 1];
     
-    NSLog(@"%lu", (unsigned long)selectedIndex);
-
-    //[self.tabBarController setSelectedIndex:selectedIndex + 1];
+    //To animate use this code
+    CATransition *anim= [CATransition animation];
+    [anim setType:kCATransitionPush];
+    [anim setSubtype:kCATransitionFromRight];
+    [anim setDuration:.5];
+    //[anim setTimingFunction:[CAMediaTimingFunction functionWithName:                         kCAMediaTimingFunctionEaseIn]];
+    [self.tabBarController.view.layer addAnimation:anim forKey:@"fadeTransition"];
 }
 
 - (void) fetchMovies {
@@ -77,7 +88,8 @@
                //Reload your table view data, bc movies is slow to load may have changed
                [self.collectionView reloadData];
            }
-
+        [self.refreshControl endRefreshing];
+        [self.activityIndicator stopAnimating];
        }];
     [task resume];
 }
