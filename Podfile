@@ -7,6 +7,7 @@ target 'Flix' do
 
   # Pods for Flix
   pod 'AFNetworking'
+  pod "youtube-ios-player-helper", "~> 1.0.3"
 
 
   target 'FlixTests' do

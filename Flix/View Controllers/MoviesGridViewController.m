@@ -10,10 +10,15 @@
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
 
+#import "UIKit+AFNetworking.h"
+
+
 
 @interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) NSArray *movies;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 
 @end
@@ -24,12 +29,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Start the activity indicator
+    [self.activityIndicator startAnimating];
+    
     [self fetchMovies];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView insertSubview: self.refreshControl atIndex:0];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
     
-    layout.minimumInteritemSpacing = 5;
-    layout.minimumLineSpacing = 5;
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 0;
     CGFloat  postersPerLine = 2;
     CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing *(postersPerLine - 1))/ postersPerLine;
     CGFloat itemHeight = itemWidth * 1.5;//arbitrary ratio
@@ -37,6 +49,26 @@
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:swipeLeft];
+    
+}
+
+- (IBAction)tappedRightButton:(id)sender
+{
+    NSLog(@"swiped left");
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    [self.tabBarController setSelectedIndex:selectedIndex + 1];
+    
+    //To animate use this code
+    CATransition *anim= [CATransition animation];
+    [anim setType:kCATransitionPush];
+    [anim setSubtype:kCATransitionFromRight];
+    [anim setDuration:.5];
+    //[anim setTimingFunction:[CAMediaTimingFunction functionWithName:                         kCAMediaTimingFunctionEaseIn]];
+    [self.tabBarController.view.layer addAnimation:anim forKey:@"fadeTransition"];
 }
 
 - (void) fetchMovies {
@@ -56,7 +88,8 @@
                //Reload your table view data, bc movies is slow to load may have changed
                [self.collectionView reloadData];
            }
-
+        [self.refreshControl endRefreshing];
+        [self.activityIndicator stopAnimating];
        }];
     [task resume];
 }
@@ -89,7 +122,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     UITableViewCell *tappedCell = sender;
-    
+
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
     NSDictionary *movie = self.movies[indexPath.row];
     
