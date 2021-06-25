@@ -10,6 +10,9 @@
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
 
+#import "UIKit+AFNetworking.h"
+
+
 
 @interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) NSArray *movies;
@@ -28,8 +31,8 @@
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
     
-    layout.minimumInteritemSpacing = 5;
-    layout.minimumLineSpacing = 5;
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 0;
     CGFloat  postersPerLine = 2;
     CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing *(postersPerLine - 1))/ postersPerLine;
     CGFloat itemHeight = itemWidth * 1.5;//arbitrary ratio
@@ -89,7 +92,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     UITableViewCell *tappedCell = sender;
-    
+
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
     NSDictionary *movie = self.movies[indexPath.row];
     

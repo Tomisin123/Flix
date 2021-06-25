@@ -11,6 +11,7 @@
 		5B97B6C8F6B26711EC74DC6F /* Pods_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786367B3DA20FE5E9A331424 /* Pods_Flix.framework */; };
 		94D2FA09268524A600CED5AC /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2FA08268524A600CED5AC /* MoviesGridViewController.m */; };
 		94D2FA0C268526E400CED5AC /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2FA0B268526E400CED5AC /* MovieCollectionCell.m */; };
+		94D2FA0F2685541700CED5AC /* TrailerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2FA0E2685541700CED5AC /* TrailerViewController.m */; };
 		94FBEB8526839032005F3012 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FBEB8426839032005F3012 /* AppDelegate.m */; };
 		94FBEB8826839032005F3012 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FBEB8726839032005F3012 /* SceneDelegate.m */; };
 		94FBEB8E26839032005F3012 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94FBEB8C26839032005F3012 /* Main.storyboard */; };
@@ -54,6 +55,8 @@
 		94D2FA08268524A600CED5AC /* MoviesGridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesGridViewController.m; sourceTree = "<group>"; };
 		94D2FA0A268526E400CED5AC /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
 		94D2FA0B268526E400CED5AC /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
+		94D2FA0D2685541700CED5AC /* TrailerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrailerViewController.h; sourceTree = "<group>"; };
+		94D2FA0E2685541700CED5AC /* TrailerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailerViewController.m; sourceTree = "<group>"; };
 		94FBEB8026839032005F3012 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94FBEB8326839032005F3012 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94FBEB8426839032005F3012 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				94FBEBC32683DE9D005F3012 /* DetailsViewController.m */,
 				94D2FA07268524A600CED5AC /* MoviesGridViewController.h */,
 				94D2FA08268524A600CED5AC /* MoviesGridViewController.m */,
+				94D2FA0D2685541700CED5AC /* TrailerViewController.h */,
+				94D2FA0E2685541700CED5AC /* TrailerViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				94D2FA0C268526E400CED5AC /* MovieCollectionCell.m in Sources */,
 				94FBEB9626839033005F3012 /* main.m in Sources */,
 				94FBEB8826839032005F3012 /* SceneDelegate.m in Sources */,
+				94D2FA0F2685541700CED5AC /* TrailerViewController.m in Sources */,
 				94D2FA09268524A600CED5AC /* MoviesGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

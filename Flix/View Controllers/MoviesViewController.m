@@ -77,6 +77,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+    
 
     //UITableViewCell *cell = [[UITableViewCell alloc] init];
 
